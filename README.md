@@ -13,6 +13,8 @@
 - PHP 8.1+
 
 ## Setup for Install
+1. please copy and past in your terminal the following steps:
+    git clone https://github.com/Sonu1707/rarome_demo.git
 
 ### Backend Setup
 
