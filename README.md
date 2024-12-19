@@ -5,12 +5,12 @@
 ## Dependencies
 
 ### Frontend
-	- ReactJS 19.0.0
-	- Node v20.15.1
+1.ReactJS 19.0.0
+2.Node v20.15.1
 
 ### Backend
-	- Symfony 6.4
-	- PHP 8.1+
+1.Symfony 6.4
+2.PHP 8.1+
 
 ## Setup for Install
 1. please copy and past in your terminal the following steps:
