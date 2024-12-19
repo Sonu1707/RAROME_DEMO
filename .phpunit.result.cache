@@ -1,0 +1,1 @@
+{"version":1,"defects":{"App\\Tests\\ApiDocumentServiceTest::testFetchAndStoreDocuments":8},"times":{"App\\Tests\\ApiDocumentServiceTest::testFetchAndStoreDocuments":0.005}}

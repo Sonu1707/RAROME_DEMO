@@ -35,9 +35,9 @@ class DefaultController  extends AbstractController
     {
         try{
         $documents = $this->documentService->fetchAndStoreDocuments();
-        return new JsonResponse($documents);
+        return new JsonResponse(['message' => 'file download sucessfull .'], 200);
         }catch(Exception $e){
-            print_r($e->getMessage());
+            return new JsonResponse(['error' => 'An error occurred while fetching documents.'], 500);
         }
        
     }

@@ -21,7 +21,7 @@ class ApiDocumentServiceTest extends TestCase
         $this->client = $this->createMock(HttpClientInterface::class);
         $this->logger = $this->createMock(LoggerInterface::class);
         $this->filesystem = $this->createMock(Filesystem::class);
-        $this->storageDir = $_ENV['APP_DOC_STORAGE'];
+        $this->storageDir = $_ENV['APP_DOC_STORAGE'] ?? '/var/documents';
 
         $this->service = new ApiDocumentService($this->client, $this->logger, $this->storageDir);
     }
