@@ -42,6 +42,7 @@
 
 # Build data
 /build/
+/.history
 
 # Composer PHAR
 /composer.phar
