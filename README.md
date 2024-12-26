@@ -89,6 +89,13 @@
      ```url
      http://rarome.local.com/documents
      ```
+2. **API Consumption:**  
+      This is GET API - 
+         ```url
+         http://rarome.local.com/api/documents_consume
+         ```
+        or hit CURL on cli
+         ```curl --location 'http://rarome.local.com/api/documents_consume'```
 
    **Note:**
    Ensure the storage directory exists with the following commands:
