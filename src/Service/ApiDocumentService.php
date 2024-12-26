@@ -5,6 +5,8 @@ namespace App\Service;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class ApiDocumentService
 {
@@ -26,7 +28,6 @@ class ApiDocumentService
         try {
             $response = $this->client->request('GET', 'https://educhain.free.beeceptor.com/get-documents');
             $documents = $response->toArray();
-
             foreach ($documents as $doc) {
                 $this->storeDocument($doc);
             }
@@ -54,6 +55,28 @@ class ApiDocumentService
             $this->filesystem->dumpFile($filePath, $decodedFile);
         } catch (\Exception $e) {
             $this->logger->error('Error storing document: ' . $e->getMessage());
+        }
+    }
+
+    public function api_consumption(): JsonResponse
+    {
+        try {
+            $response = $this->client->request('GET', 'https://raw.githubusercontent.com/RashitKhamidullin/Educhain-Assignment/refs/heads/main/get-documents');
+        $documents = $response->toArray();
+        $return_final_array = [];
+
+        foreach ($documents as $doc) {
+            $return_final_array[] = [
+                'app_no' => $doc['app_no'] ?? null, // Use null if keys are missing
+                'doc_no' => $doc['doc_no'] ?? null,
+                'ver_no' => $doc['ver_no'] ?? null,
+                'cert_dt' => $doc['cert_dt'] ?? null,
+            ];
+        }
+     
+        return new JsonResponse($return_final_array);
+        } catch (\Exception $e) {
+            $this->logger->error('Error fetching documents: ' . $e->getMessage());
         }
     }
 }
